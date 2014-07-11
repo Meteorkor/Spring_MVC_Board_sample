@@ -47,9 +47,7 @@ public class Basic_Board_Controller {
 		
 		BBS_wrapper bbs_wrapper = new BBS_wrapper();
 		
-		
 		ArrayList<Default_bbs> bbs_list = new ArrayList<Default_bbs>();
-		
 		
 		bbs_list.add( new Default_bbs( 0, "title", "writor", "2014-06-20 15:09", 1002) );
 		bbs_list.add( new Default_bbs( 1, "title", "writor", "2014-06-20 15:09", 1002) );
@@ -59,18 +57,20 @@ public class Basic_Board_Controller {
 		
 		model.addAttribute("blst", bbs_wrapper.getB_list() );
 		
-
-		//bbs_wrapper.setPageSize( 10 );
-		//bbs_wrapper.setPageSize( 20 );
 		bbs_wrapper.setPageTotal( 10 );
-		
 		bbs_wrapper.setNow_page( 1 );
 		
 		model.addAttribute("Pg_nate", bbs_wrapper );
 		
-		
-		
 		return "basic_board_list";
 	}
+	@RequestMapping(value = "11", method = RequestMethod.GET)
+	public String sample_page(Locale locale, Model model) {
+		
+		//model.addAttribute("Pg_nate", bbs_wrapper );
+		
+		return "basic_board_editor";
+	}
+	
 
 }
